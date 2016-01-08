@@ -1280,11 +1280,11 @@ var Gamezyme = (function() {
     return gz;
 }());
 
-if (window.GamezymeAsyncInit && !window.GamezymeAsyncInit.hasRun) {
-    window.GamezymeAsyncInit.hasRun = true;
-    window.GamezymeAsyncInit();
-}
-
-if (!window.GamezymeAsyncInit) {
-    throw 'gz.init must have defined var window.GamezymeAsyncInit';
-}
+// if (window.GamezymeAsyncInit && !window.GamezymeAsyncInit.hasRun) {
+//     window.GamezymeAsyncInit.hasRun = true;
+//     window.GamezymeAsyncInit();
+// }
+//
+// if (!window.GamezymeAsyncInit) {
+//     throw 'gz.init must have defined var window.GamezymeAsyncInit';
+// }
