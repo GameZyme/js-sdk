@@ -1,4 +1,4 @@
-**GameZyme Javascript plugin**
+**GameZyme Javascript SDK**
 ==============================
 Get started
 -----------
@@ -6,35 +6,34 @@ Get started
 
 Initialize
 ----------
-To start using **GameZyme**, you must have an account (for that just create an account and sign in [here](http://www.gamezyme.com/login)). After that you need to add the following snippet into your index HTML.
+To use **GameZyme**, you must have an account (sign in [here](http://www.gamezyme.com/login)), and a game set up on the dashboard. Then you just need to add the SDK and your game's public key to your HTML:
 
 ```html
 <head>
-    <!-- You can download our minified file and add it -->  
+    <!-- Host it locally -->  
     <script src="/js/gz.min.js"></script>
-    <!-- Or get it from an external source -->
-    <script src="https://rawgit.com/GameZyme/js_plugin/master/dist/gz.min.js"></script>
+    <!-- Or Get it from an external source -->
+    <!-- <script src="https://rawgit.com/GameZyme/js_plugin/master/dist/gz.min.js"></script> -->
     <script>
-        var publicKey = "<GAME'S PUBLIC KEY>";
+        var publicKey = "<YOUR GAME'S PUBLIC KEY>";
 
         Gamezyme.init(publicKey, function(result) {
-            // Callback when the init method suceeded
+            // Connection suceeded
             console.log("Connected and ready!");
         }, function(error) {
-            // Something failed
+            // Something went wrong
             console.log("Something went wrong! \n" + "Error detail: " + error);
         });
     </script>
 </head>
 ```
-You can get your game's **public key** in the **Basic** section of our dashboard.
+You can get your game's **public key** in the **Settings** section of our dashboard.
 
 Game
 ----
-In this section you can get variables configured earlier in our dashboard.
 
 ### .getAllVars(callback)   
-Retrieve all game variables.
+Retrieve all game variables you set in GameZyme's dashboard.
 
 #### Example
 ```javascript
@@ -46,7 +45,7 @@ Gamezyme.game.getAllVars(function(response) {
 ```
 
 ### .getVar(key, callback)   
-Retrieve a single variable.
+Retrieve a single variable you set in GameZyme's dashboard.
 
 #### Example
 ```javascript
@@ -61,10 +60,9 @@ Gamezyme.game.getVar(key, function(response){
 ```
 Server
 ------
-This section is for sending information to the server.
 
 ### .ping(callback)
-Send player's info to the server, like time, player's ID, among others
+Get server Status
 
 #### Example
 ```javascript
