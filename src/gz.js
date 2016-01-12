@@ -467,7 +467,7 @@ var Gamezyme = (function() {
         request.onreadystatechange = function() {
             var result;
 
-            if (request.readyState === 4 && request.status === 200) {
+            if (request.readyState === 4) {
                 if (request.status === 200) {
                     result = JSON.parse(request.responseText);
                     complete(callback, postdata, result, new Response(result.status, result.error));
@@ -792,24 +792,6 @@ var Gamezyme = (function() {
 
         callback(data);
     }
-
-    /**
-     * @callback module:Gamezyme~callback
-     * @desc Callback function.
-     * @param {Object} result - This object has the full response from the server.
-     * @param {String} result.status - Could be **fail** or **success**.
-     * @param {Object} result.error - If **`result.status`** is **fail**, you can see what's wrong.
-     * @param {String} result.error.code - Brings the error code if your request fails.
-     * @param {String} result.error.message - The message from the server in case of failure.
-     * @param {(Object|String|Boolean)} result.response - If **`result.status`** is **success**
-     * means that everything is fine and you can retrieve the response from the server.
-     * @example
-     * function(result) {
-     *     console.log(result.status)
-     *     console.log(result.error);
-     *     console.log(result.response);
-     * }
-     */
 
     /**
      * @function init
