@@ -81,27 +81,6 @@ Gamezyme.server.ping(function(response) {
 });
 ```
 
-Purchases
----------
-This method is still a stub, in the future you'll be able to validate in app purchases (IAP) using it.
-
-### .register(params, callback)
-Register an In-App Purchase (IAP). The `params` object must have the `name` and `value` parameters.
-
-#### Example
-```javascript
-var item = {
-	name: 'powerUp_bullets',
-	value: 1.99
-};
-
-Gamezyme.purchases.register(item, function(response) {
-    if (response.result === 'success') {
-        // purchase successfully registered
-    }
-});
-```
-
 Player
 ------
 These methods are related to the player's information. Here you can login, logout, save player data, among others.
@@ -111,7 +90,7 @@ Send an email to the player with the steps to recover his/her password.
 
 #### Example
 ```javascript
-var email = "foo@bar.io";
+var email = "email@example.com";
 
 Gamezyme.player.forgotPassword(email, function(response) {
     if(response.result === "success") {
