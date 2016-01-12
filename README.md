@@ -37,6 +37,7 @@ Game
 ----
 
 Using the **GameZyme**'s dashboard you can set variables that can be retrieved from your game in the **Properties - Gamevars** section.
+
 ![Properties - Gamevars](http://gamezyme.github.io/images/gamevars.png)
 
 ### .getAllVars(callback)   
