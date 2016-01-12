@@ -33,7 +33,7 @@ Game
 ----
 
 ### .getAllVars(callback)   
-Retrieve all game variables you set in GameZyme's dashboard.
+Retrieve all game variables set in **GameZyme**'s dashboard.
 
 #### Example
 ```javascript
@@ -75,7 +75,7 @@ Gamezyme.server.ping(function(response) {
 
 Purchases
 ---------
-In this section, you can register every IAP (In-App Purchase) made in your game. We will improve this section soon so use it now and when everything is ready you'll find it useful. Trust us!
+This method is still a stub, in the future you'll be able to validate in app purchases (IAP) using it.
 
 ### .register(params, callback)
 Register an In-App Purchase (IAP). The `params` object must have the `name` and `value` parameters.
@@ -96,7 +96,7 @@ Gamezyme.purchases.register(item, function(response) {
 
 Player
 ------
-This section has everything related to the player. Here you can login, logout, save player data, among others.
+These methods are related to the player's information. Here you can login, logout, save player data, among others.
 
 ### .forgotPassword(email, callback)
 Send an email to the player with the steps to recover his/her password.
@@ -114,7 +114,7 @@ Gamezyme.player.forgotPassword(email, function(response) {
 ```
 
 ### .getData(callback)
-Gets the player data of your game
+Gets the player's peristed game data
 
 #### Example
 ```javascript
@@ -143,7 +143,7 @@ Gamezyme.player.isLoggedIn(function(result) {
 ```
 
 ### localLogin(email, password, callback)
-If a player has an account, use this function to login into **GameZyme**. Parameters `email` and `password` must be **Strings**.
+If a player has an account, use this function to login into your game. Parameters `email` and `password` must be **Strings**.
 
 #### Example
 ```javascript
@@ -163,7 +163,7 @@ Gamezyme.player.localLogin(email, password, function(result) {
 ```
 
 ### .localSignUp(email, password, name, callback)
-With this function you can register a player with an `email`, a `password` and his/her `name`. All these parameters must be **String**
+Use this function to register a player with an `email`, a `password` and his/her `name`. All these parameters must be **String**
 
 #### Example
 ```javascript
@@ -184,7 +184,7 @@ Gamezyme.player.localSignUp(email, password, name, function(result) {
 ```
 
 ### .logout(callback)
-With this method you can logout the player.
+Use this method to logout the player.
 
 #### Example
 ```javascript
@@ -243,7 +243,7 @@ btnLoginFacebook.onclick = function(e) {
 ```
 
 ### .saveData(callback)
-Save the player data of your game
+Persist the player's game data
 
 #### Example
 ```javascript
@@ -263,12 +263,10 @@ Gamezyme.player.saveData(data, function(result){
 
 Leaderboard
 -----------
-In **GameZyme** we handle 2 type of leaderboard: **Global leaderboard** and **Friends leaderboard**. With this section you can show both leaderboards if you want it.
-
-We must say it! Our leaderboards are **multiplatform**, so you can get player from _Android_ and _iOS_ in the same list!
+In **GameZyme** we handle 2 type of crossplatform leaderboards: **Global leaderboard** and **Friends leaderboard**. Using these methods you can show both leaderboards.
 
 ### .getFriends(options, callback)
-Gets player's friends leaderboard (only Facebook)
+Get the player's friends leaderboard (currently we only support Facebook friends)
 
 #### Example
 ```javascript
