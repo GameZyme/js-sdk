@@ -53,7 +53,7 @@ Gamezyme.game.getAllVars(function(response) {
 ```
 
 ### .getVar(key, callback)   
-Retrieve a single variable you in **GameZyme**'s dashboard.
+Retrieve a single variable set in **GameZyme**'s dashboard.
 
 #### Example
 ```javascript
