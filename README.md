@@ -6,8 +6,13 @@ Get started
 
 Initialize
 ----------
-To use **GameZyme**, you must have an account (sign in [here](http://www.gamezyme.com/login)), and a game set up on the dashboard. Then you just need to add the SDK and your game's public key to your HTML:
+To use **GameZyme**, you must have an account (sign in [here](http://www.gamezyme.com/login)), and a game set up on the dashboard. Then you just need to add the SDK and your game's public key to your HTML.
 
+You can get your game's **public key** in the **Settings - Basic** section of our dashboard.
+
+![Settings - Basic](http://gamezyme.github.io/images/public-key.png)
+
+#### Example
 ```html
 <head>
     <!-- Host it locally -->  
@@ -27,10 +32,11 @@ To use **GameZyme**, you must have an account (sign in [here](http://www.gamezym
     </script>
 </head>
 ```
-You can get your game's **public key** in the **Settings** section of our dashboard.
 
 Game
 ----
+
+Using the **GameZyme**'s dashboard you can set variables that can be retrieved from your game in the 
 
 ### .getAllVars(callback)   
 Retrieve all game variables set in **GameZyme**'s dashboard.
@@ -45,7 +51,7 @@ Gamezyme.game.getAllVars(function(response) {
 ```
 
 ### .getVar(key, callback)   
-Retrieve a single variable you set in GameZyme's dashboard.
+Retrieve a single variable you in **GameZyme**'s dashboard.
 
 #### Example
 ```javascript
