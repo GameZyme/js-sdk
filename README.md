@@ -1,11 +1,9 @@
 **GameZyme Javascript SDK**
-==============================
-Get started
------------
-
+===========================
 
 Initialize
 ----------
+
 To use **GameZyme**, you must have an account (sign in [here](http://www.gamezyme.com/login)), and a game set up on the dashboard. Then you just need to add the SDK and your game's public key to your HTML.
 
 You can get your game's **public key** in the **Settings - Basic** section of our dashboard.
