@@ -798,12 +798,6 @@ var Gamezyme = (function() {
      * @desc Lorem ipsum
      * @memberof! module:Gamezyme
      * @param {function} callback - The callback function of your game.
-     * @example
-     * var callback = function(response) {
-     *     console.log(JSON.stringify(response))
-     * };
-     *
-     * Gamezyme.init(callback);
      */
     gz.init = function(publicKey, callback, error) {
         var arrayLoginButton = document.getElementsByTagName("gs:fb-login-button"),
@@ -871,22 +865,6 @@ var Gamezyme = (function() {
          * @param {string} password - Player's password.
          * @param {string} name - Player's name.
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         *
-         * @example
-         * var email = 'foo@bar.io';
-         * var password = 'foobar';
-         * var name = 'Scott C. Alves';
-         *
-         * Gamezyme.player.localSignUp(email, password, name, function(result) {
-         *     var error = result.error;
-         *     if (error) {
-         *         // Probably the player exists
-         *         console.log(error.message);
-         *     } else {
-         *         // Player signed up successfully
-         *         console.log(result.response);
-         *     }
-         * });
          */
         localSignUp: function(email, password, name, callback) {
             var arrayError = [],
@@ -910,20 +888,6 @@ var Gamezyme = (function() {
          * @param {string} email - Player's email.
          * @param {string} password - Player's password.
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * var email = 'foo@bar.io';
-         * var password = 'foobar';
-         *
-         * Gamezyme.player.localLogin(email, password, function(result) {
-         *     var error = result.error;
-         *     if (error) {
-         *         // Maybe there's an error with his email or password
-         *         console.log(error.message);
-         *     } else {
-         *         // Player logged in successfully
-         *         console.log(result.response);
-         *     }
-         * });
          */
         localLogin: function(email, password, callback) {
             var arrayError = [],
@@ -943,18 +907,6 @@ var Gamezyme = (function() {
          * @desc Open popup for Facebook login
          * @memberof! module:Gamezyme.player
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * var btnLoginFacebook = document.getElementsById("fb-login");
-         *
-         * button.onclick = function(e) {
-         *     Gamezyme.player.openPopupLoginFacebook(function(result) {
-         *     var error = result.error;
-         *     if (error) {
-         *         console.log(error.message);
-         *     } else {
-         *         console.log(result.response);
-         *     }
-         * }
          */
         openPopupLoginFacebook: function(callback) {
             if (loginWindowClosed) {
@@ -985,13 +937,6 @@ var Gamezyme = (function() {
          * @desc Check if the player is already logged in
          * @memberof! module:Gamezyme.player
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * Gamezyme.player.isLoggedIn(function(result){
-         *    if(result.response === true) {
-         *        // This means the player ir already logged in
-         *        console.log('Player already logged in');
-         *    }
-         * });
          */
         isLoggedIn: function(callback) {
             var result = {
@@ -1011,19 +956,6 @@ var Gamezyme = (function() {
          * @memberof! module:Gamezyme.player
          * @param {Object} params - All the params that you want to save, like the score of the player. You can send an object with 1 or more key-value pair.
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * var data = {
-         *     currentLevel: 5,
-         *     money: 3200,
-         *     score: 5000,
-         * };
-         *
-         * Gamezyme.player.saveData(data, function(result){
-         *    if(result.status === 'success' && result.response === true) {
-         *        // Data saved successfully
-         *        console.log('Data saved');
-         *    }
-         * });
          */
         saveData: function(params, callback) {
             sendAPIRequest("players", "saveData", getOrSaveDataComplete, callback, {
@@ -1036,16 +968,6 @@ var Gamezyme = (function() {
          * @desc Gets the player data of your game.
          * @memberof! module:Gamezyme.player
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * var playerData = {};
-         *
-         * Gamezyme.player.getData(function(result){
-         *    if(result.status === 'success') {
-         *        // Successfully retrieved data
-         *        console.log('Data retrieved');
-         *        playerData = result.response;
-         *    }
-         * });
          */
         getData: function(callback) {
             sendAPIRequest("players", "getData", getOrSaveDataComplete, callback);
@@ -1056,13 +978,6 @@ var Gamezyme = (function() {
          * @desc Logout player
          * @memberof! module:Gamezyme.player
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * Gamezyme.player.logout(function(result){
-         *    if(result.status === 'success') {
-         *        // Player logged out
-         *        console.log('Player logged out');
-         *    }
-         * });
          */
         logout: function(callback) {
             sendAPIRequest("players", "logout", logoutComplete, callback);
@@ -1074,15 +989,6 @@ var Gamezyme = (function() {
          * @memberof! module:Gamezyme.player
          * @param {string} mail - Email of the player.
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * var email = "foo@bar.io";
-         *
-         * Gamezyme.player.forgotPassword(email, function(result){
-         *    if(result.status === 'success') {
-         *        // An email It was sent to the player to recover his/her password
-         *        console.log('Player logged out');
-         *    }
-         * });
          */
         forgotPassword: function(email, callback) {
             var params = {
@@ -1097,28 +1003,6 @@ var Gamezyme = (function() {
          * @desc Retrieve information about the current player
          * @memberof! module:Gamezyme.player
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * var player = {};
-         *
-         * Gamezyme.player.me(function(result){
-         *    if(result.status === 'success') {
-         *        // Successfully player info retrieved
-         *        console.log('Player info retrieved');
-         *        player = result.response
-         *
-         *        // Player's email
-         *        console.log(player.email);
-         *        // Player's identifier
-         *        console.log(player.identifier);
-         *        // Player's name
-         *        console.log(player.name);
-         *        // Player's typeIdentifier (local sign-up or facebook)
-         *        console.log(player.typeIdentifier);
-         *        // Player's profile picture (if typeIdentifier is Facebook,
-         *        // will the player's profile image of his Facebook account)
-         *        console.log(player.urlProfilePicture);
-         *    }
-         * });
          */
         me: function(callback) {
             sendAPIRequest("players", "me", meComplete, callback);
@@ -1136,12 +1020,6 @@ var Gamezyme = (function() {
          * @desc Retrieve all game vars
          * @memberof! module:Gamezyme.game
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * var gameVars = {};
-         *
-         * Gamezyme.game.getAllVars(function(response){
-         *     gameVars = response.result;
-         * });
          */
         getAllVars: function(callback) {
             sendAPIRequest("properties", "getGamevars", loadComplete, callback);
@@ -1153,15 +1031,6 @@ var Gamezyme = (function() {
          * @memberof! module:Gamezyme.game
          * @param {String} key - Key of the game var that you want to retrieve from the server.s
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * var key = "boss01_health";
-         * var value;
-         *
-         * Gamezyme.game.getAllVars(key, function(response){
-         *     if (typeof response.error == 'undefined') {
-         *         value = response.result;
-         *     }
-         * });
          */
         getVar: function(key, callback) {
             sendAPIRequest("properties", "getGamevar", loadComplete, callback, {
@@ -1180,12 +1049,6 @@ var Gamezyme = (function() {
          * @desc Send player's info to the server, like time, player's ID, among others.
          * @memberof! module:Gamezyme.server
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * Gamezyme.server.ping(function(result){
-         *     if (typeof result.error == 'undefined') {
-         *         // everything's fine
-         *     }
-         * });
          */
         ping: function(callback) {
             sendAPIRequest("healths", "ping", pingComplete, callback, {
@@ -1204,12 +1067,6 @@ var Gamezyme = (function() {
          * @memberof! module:Gamezyme.purchases
          * @param {Object} params -
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * Gamezyme.server.ping(function(result){
-         *     if (typeof result.error == 'undefined') {
-         *         // everything's fine
-         *     }
-         * });
          */
         register: function(params, callback) {
             sendAPIRequest("purchases", "register", registerComplete, callback, params);
@@ -1226,12 +1083,6 @@ var Gamezyme = (function() {
          * @memberof! module:Gamezyme.leaderboard
          * @param {Object} params - ---
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * Gamezyme.server.ping(function(result){
-         *     if (typeof result.error == 'undefined') {
-         *         // everything's fine
-         *     }
-         * });
          */
         getGlobal: function(options, callback) {
             sendAPIRequest("leaderboards", "allScores", getLeaderboardComplete, callback, {
@@ -1245,12 +1096,6 @@ var Gamezyme = (function() {
          * @memberof! module:Gamezyme.leaderboard
          * @param {Object} optons - ---
          * @param {module:Gamezyme~callback} callback - This function send the response from the server.
-         * @example
-         * Gamezyme.server.ping(function(result){
-         *     if (typeof result.error == 'undefined') {
-         *         // everything's fine
-         *     }
-         * });
          */
         getFriends: function(options, callback) {
             sendAPIRequest("leaderboards", "friendsScores", getLeaderboardComplete, callback, {
@@ -1261,12 +1106,3 @@ var Gamezyme = (function() {
 
     return gz;
 }());
-
-// if (window.GamezymeAsyncInit && !window.GamezymeAsyncInit.hasRun) {
-//     window.GamezymeAsyncInit.hasRun = true;
-//     window.GamezymeAsyncInit();
-// }
-//
-// if (!window.GamezymeAsyncInit) {
-//     throw 'gz.init must have defined var window.GamezymeAsyncInit';
-// }
